@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Steven Sitorus - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">JS. Portofolio Website</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span class="highlight">Jonathan</span></h1>
+                <div class="subtitle">programming, Designer, 3D Modeling</div>
+                <p>An undergraduate student of Informatics Engineering at PLN Institute of Technology, passionate about creating beautiful and functional digital experiences.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="https://drive.google.com/file/d/1A7VtHZPq4g2ZF0M4IEruQviGEZisFQBh/view?usp=sharing" class="btn btn-secondary" target="_blank">Download CV</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/bacotologi" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/natann_strs?igsh=MTBpcDdjZnlnNXp1ag==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/jonathan-steven-sitorus-73b863353" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="asset/standing-person.jpg" alt="Jonathan Steven Sitorus">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Get to know more about who I am</p>
+        <div class="about-container">
+            <div class="about-image">
+                <img src="asset/sitting-person-1.jpg" alt="About Jonathan">
+            </div>
+            <div class="about-text">
+                <h3>Passionate Developer & Creative Designer</h3>
+                <p>I am a person who likes to learn new things, and I am able to work in a team because working in a team can help me to develop myself and also give advice and evaluate myself.</p>
+                <p>I have experience in committee work as a photographer documentation section in an event. I also have skills in graphic design, operating the C++ language, HTML and CSS, video editing, photo editing, 3D Modeling with Blender, and playing music.</p>
+                <a href="https://drive.google.com/file/d/1A7VtHZPq4g2ZF0M4IEruQviGEZisFQBh/view?usp=sharing" class="btn btn-primary" target="_blank">Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">My Skills</h2>
+        <p class="section-subtitle">Technologies and tools I work with</p>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">HTML</span>
+                    <span class="skill-percentage">60%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 60%"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">CSS</span>
+                    <span class="skill-percentage">50%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 50%"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">C++</span>
+                    <span class="skill-percentage">70%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 70%"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Photography</span>
+                    <span class="skill-percentage">65%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 65%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">My Projects</h2>
+        <p class="section-subtitle">Explore my recent work and achievements</p>
+        
+        <div class="projects-header">
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">programming</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="photography">Photography</button>
+            </div>
+            <button class="btn btn-success btn-small" id="addProjectBtn">
+                <i class="fas fa-plus"></i> Add Project
+            </button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Projects will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- Project View Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-image" id="modalImage"></div>
+            <div class="modal-category" id="modalCategory"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-description" id="modalDescription"></p>
+            <div class="modal-tags" id="modalTags"></div>
+            <div class="modal-links" id="modalLinks"></div>
+        </div>
+    </div>
+
+    <!-- Project Form Modal -->
+    <div class="modal" id="projectFormModal">
+        <div class="modal-content">
+            <button class="modal-close" id="formModalClose">&times;</button>
+            <h2 id="formTitle">Add New Project</h2>
+            <form id="projectForm">
+                <input type="hidden" id="projectId">
+                
+                <div class="form-group">
+                    <label for="projectTitle">Project Title *</label>
+                    <input type="text" id="projectTitleInput" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectCategory">Category *</label>
+                    <select id="projectCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="web">programming</option>
+                        <option value="design">Design</option>
+                        <option value="photography">Photography</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectIcon">Icon Emoji *</label>
+                    <input type="text" id="projectIcon" placeholder="🚀" required maxlength="2">
+                    <small>Enter an emoji to represent your project</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectImageUrl">Cover Image/Media URL</label>
+                    <input type="url" id="projectImageUrl" placeholder="https://...">
+                    <small>Paste an image URL, YouTube embed, or media link</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectDescription">Short Description *</label>
+                    <textarea id="projectDescription" required placeholder="Project overview..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Tags</label>
+                    <div class="tags-input">
+                        <input type="text" id="projectTagsInput" placeholder="Type a tag and press Enter">
+                    </div>
+                    <small>Example: HTML, CSS, UI/UX, Blender</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectLinkSource">Source Link</label>
+                    <input type="url" id="projectLinkSource" placeholder="https://github.com/...">
+                </div>
+
+                <div class="cta-buttons">
+                    <button type="submit" class="btn btn-primary btn-small">Save Project</button>
+                    <button type="button" class="btn btn-secondary btn-small" id="formCancelBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact CTA -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Have a project in mind? Let's talk.</p>
+
+        <div class="contact-cta">
+            <div class="text">
+                <div class="topic" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="200">Have Any Project?</div>
+                <p>if you have a project to do please contact me below.</p>
+                <div class="button" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                    <a href="https://wa.link/6t2nqn" target="_blank" rel="noopener">
+                        <button class="btn btn-primary"> Let's Chat</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimal footer if not present -->
+    <footer>
+        <p>© <span id="yearNow"></span> Jonathan Steven Sitorus. Built with passion.</p>
+    </footer>
+
+    <script>
+        // Year in footer (no other JS added to keep original behavior intact)
+        (function () {
+            var y = document.getElementById('yearNow');
+            if (y) y.textContent = new Date().getFullYear();
+        })();
+
+        // Projects filter controls
+        // Membuat filterProjects bisa diakses secara global
+        window.filterProjectsByCategory = function(category) {
+            var grid = document.getElementById('projectsGrid');
+            if (!grid) return;
+            
+            var cards = Array.prototype.slice.call(grid.querySelectorAll('.project-card'));
+            if (!cards.length) {
+                // No cards yet; show empty state helpful message
+                var empty = grid.querySelector('.empty-state');
+                if (empty) {
+                    empty.style.display = 'block';
+                }
+                return;
+            }
+            
+            var visible = 0;
+            cards.forEach(function (card) {
+                var cardCategory = card.getAttribute('data-category') || '';
+                var isMatch = category === 'all' || cardCategory === category;
+                card.style.display = isMatch ? '' : 'none';
+                if (isMatch) visible++;
+            });
+            
+            // Update empty state
+            var empty = grid.querySelector('.empty-state');
+            if (empty) {
+                empty.style.display = visible === 0 ? 'block' : 'none';
+            }
+        };
+
+        (function () {
+            var filterButtons = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
+            var grid = document.getElementById('projectsGrid');
+            if (!grid || !filterButtons.length) return;
+
+            function ensureEmptyStateElement() {
+                var existing = grid.querySelector('.empty-state');
+                if (existing) return existing;
+                var empty = document.createElement('div');
+                empty.className = 'empty-state';
+                empty.innerHTML = '<i class="fas fa-folder-open"></i><p>No projects to show yet.</p>';
+                grid.appendChild(empty);
+                return empty;
+            }
+
+            function updateEmptyState(visibleCount) {
+                var empty = grid.querySelector('.empty-state');
+                if (!empty) empty = ensureEmptyStateElement();
+                empty.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+
+            function filterProjects(category) {
+                var cards = Array.prototype.slice.call(grid.querySelectorAll('.project-card'));
+                if (!cards.length) {
+                    // No cards yet; show empty state helpful message
+                    updateEmptyState(0);
+                    return;
+                }
+                var visible = 0;
+                cards.forEach(function (card) {
+                    var cardCategory = card.getAttribute('data-category') || '';
+                    var isMatch = category === 'all' || cardCategory === category;
+                    card.style.display = isMatch ? '' : 'none';
+                    if (isMatch) visible++;
+                });
+                updateEmptyState(visible);
+            }
+
+            filterButtons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    filterButtons.forEach(function (b) { b.classList.remove('active'); });
+                    this.classList.add('active');
+                    var category = this.getAttribute('data-filter') || 'all';
+                    filterProjects(category);
+                });
+            });
+
+            // Initialize on load with the current active button
+            var activeBtn = document.querySelector('.filter-btn.active');
+            var initial = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
+            filterProjects(initial || 'all');
+        })();
+      
+       
+document.addEventListener("DOMContentLoaded", () => {
+  const projectsGrid = document.getElementById("projectsGrid");
+
+  // Fungsi untuk update empty state berdasarkan jumlah project
+  function updateEmptyStateVisibility() {
+    const emptyState = projectsGrid.querySelector('.empty-state');
+    const projectCards = projectsGrid.querySelectorAll('.project-card');
+    const visibleCards = Array.from(projectCards).filter(card => 
+      card.style.display !== 'none'
+    );
+    
+    if (emptyState) {
+      // Jika ada project yang terlihat, sembunyikan empty state
+      // Jika tidak ada project yang terlihat, tampilkan empty state
+      emptyState.style.display = visibleCards.length === 0 ? 'block' : 'none';
+    } else if (projectCards.length === 0) {
+      // Jika tidak ada empty state dan tidak ada project, buat empty state
+      const empty = document.createElement('div');
+      empty.className = 'empty-state';
+      empty.innerHTML = '<i class="fas fa-folder-open"></i><p>No projects to show yet.</p>';
+      projectsGrid.appendChild(empty);
+    }
+  }
+
+  fetch("projects.json") // pastikan file ini benar-benar ada
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Gagal mengambil file JSON");
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Pastikan data adalah array
+      if (!Array.isArray(data)) {
+        throw new Error("Format JSON salah — seharusnya berupa array");
+      }
+
+      // Jika tidak ada project, tampilkan empty state
+      if (data.length === 0) {
+        updateEmptyStateVisibility();
+        return;
+      }
+
+      // Loop untuk menampilkan setiap project
+      data.forEach(project => {
+        const card = document.createElement("div");
+        card.classList.add("project-card");
+        
+        // Menambahkan atribut data-category untuk filtering
+        // Jika category tidak ada di JSON, default ke 'all'
+        const category = project.category || 'all';
+        card.setAttribute('data-category', category);
+
+        card.innerHTML = `
+            <img class="project-image" src="${project.image}" alt="${project.title}">
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
+            <a href="${project.link}" target="_blank">Lihat Project</a>
+        `;
+
+        projectsGrid.appendChild(card);
+      });
+
+      // Setelah semua project dimuat, trigger filter untuk menampilkan project sesuai filter aktif
+      setTimeout(() => {
+        const activeBtn = document.querySelector('.filter-btn.active');
+        const category = activeBtn ? activeBtn.getAttribute('data-filter') || 'all' : 'all';
+        
+        // Panggil filter function global untuk memfilter project
+        if (window.filterProjectsByCategory) {
+          window.filterProjectsByCategory(category);
+        }
+        
+        // Update empty state setelah filter
+        updateEmptyStateVisibility();
+      }, 100);
+    })
+    .catch(error => {
+      console.error("Gagal memuat data project:", error);
+      // Jika error, tampilkan empty state
+      updateEmptyStateVisibility();
+    });
+});
+
+
+
+    </script>
+</body>
+</html>
