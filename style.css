@@ -35,7 +35,8 @@ body {
     background: var(--bg);
     color: var(--text);
     overflow-x: hidden;
-    line-height: 1.65;
+    line-height: 1.5; /* Dioptimalkan dari 1.65 agar teks paragraf tidak terlalu renggang */
+    letter-spacing: -0.01em; /* Sedikit dirapatkan untuk look yang lebih premium */
 }
 
 /* ── Noise overlay ── */
@@ -54,7 +55,7 @@ body::before {
 ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 99px; }
 
 /* ════════════════════════════════
-   NAV
+    NAV
 ════════════════════════════════ */
 nav {
     position: fixed;
@@ -83,7 +84,7 @@ nav {
     font-size: .95rem;
     font-weight: 700;
     color: var(--text);
-    letter-spacing: -.01em;
+    letter-spacing: -.02em; /* Dirapatkan agar text logo solid */
 }
 
 .logo span {
@@ -92,7 +93,7 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 0;
+    gap: .25rem; /* Memberikan jarak antar menu yang rapat namun presisi */
     list-style: none;
 }
 
@@ -100,11 +101,11 @@ nav {
     color: var(--text-2);
     text-decoration: none;
     font-size: .88rem;
-    font-weight: 400;
+    font-weight: 500;
     padding: .45rem .85rem;
     border-radius: 99px;
     transition: color .2s, background .2s;
-    letter-spacing: .01em;
+    letter-spacing: -0.01em; /* Mengurangi kerenggangan font bawaan */
 }
 
 .nav-links a:hover,
@@ -134,13 +135,13 @@ nav {
 }
 
 /* ════════════════════════════════
-   HERO
+    HERO
 ════════════════════════════════ */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 9rem 5% 5rem;
+    padding: 7rem 5% 4rem; /* Dikurangi sedikit agar content naik dan tidak terlalu low-dense */
     position: relative;
     overflow: hidden;
 }
@@ -179,7 +180,7 @@ nav {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    gap: 4rem; /* Dipersempit dari 5rem agar komposisi seimbang */
     align-items: center;
     position: relative;
     z-index: 1;
@@ -190,16 +191,16 @@ nav {
     display: inline-flex;
     align-items: center;
     gap: .45rem;
-    font-size: .78rem;
-    font-weight: 500;
-    letter-spacing: .06em;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .03em; /* Dikurangi dari 0.06em agar tidak terpecah-pecah hurufnya */
     text-transform: uppercase;
     color: var(--accent);
     background: var(--accent-dim);
     border: 1px solid rgba(0,245,200,.2);
     border-radius: 99px;
     padding: .35rem .85rem;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1rem; /* Jarak ke bawah dirapatkan */
 }
 
 .hero-badge::before {
@@ -217,11 +218,11 @@ nav {
 
 .hero-content h1 {
     font-family: var(--font-display);
-    font-size: clamp(2.8rem, 5vw, 4.6rem);
+    font-size: clamp(2.5rem, 4.8vw, 4.2rem);
     font-weight: 800;
-    line-height: 1.02;
+    line-height: 1.05; /* Disesuaikan agar antar baris judul besar menyatu dengan elegan */
     letter-spacing: -.03em;
-    margin-bottom: 1rem;
+    margin-bottom: .8rem;
 }
 
 .hero-content h1 .highlight {
@@ -231,37 +232,37 @@ nav {
 }
 
 .hero-content .subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--accent);
-    font-weight: 500;
-    letter-spacing: .04em;
+    font-weight: 600;
+    letter-spacing: .02em; /* Mengurangi renggang berlebih */
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: .75rem;
     font-family: var(--font-display);
 }
 
 .hero-content p {
     color: var(--text-2);
-    font-size: 1rem;
-    margin-bottom: 2.2rem;
+    font-size: .95rem;
+    margin-bottom: 1.75rem; /* Merapatkan transisi antara deskripsi ke tombol CTA */
     max-width: 440px;
-    line-height: 1.75;
+    line-height: 1.55; /* Lebih padat namun tetap nyaman dibaca */
 }
 
 .cta-buttons {
     display: flex;
-    gap: .75rem;
+    gap: .65rem; /* Lebih rapat dan kohesif */
     flex-wrap: wrap;
     align-items: center;
 }
 
 /* ── Buttons ── */
 .btn {
-    padding: .8rem 1.8rem;
+    padding: .75rem 1.6rem; /* Lebih proporsional */
     border: none;
     border-radius: var(--radius-sm);
     font-weight: 500;
-    font-size: .9rem;
+    font-size: .88rem;
     cursor: pointer;
     transition: all .25s cubic-bezier(.16,1,.3,1);
     text-decoration: none;
@@ -269,7 +270,7 @@ nav {
     align-items: center;
     gap: .4rem;
     font-family: var(--font-body);
-    letter-spacing: .01em;
+    letter-spacing: -0.01em;
 }
 
 .btn-primary {
@@ -304,20 +305,20 @@ nav {
 }
 
 .btn-small {
-    padding: .5rem 1.1rem;
-    font-size: .82rem;
+    padding: .45rem 1rem;
+    font-size: .8rem;
     border-radius: 6px;
 }
 
 /* Social links */
 .social-links {
     display: flex;
-    gap: .65rem;
-    margin-top: 2.2rem;
+    gap: .5rem;
+    margin-top: 1.75rem; /* Merapatkan gap dari elemen atasnya */
 }
 
 .social-links a {
-    width: 42px; height: 42px;
+    width: 38px; height: 38px; /* Dikecilkan sedikit agar minimalis */
     background: var(--bg-2);
     border-radius: var(--radius-sm);
     display: flex;
@@ -326,7 +327,7 @@ nav {
     color: var(--text-2);
     border: 1px solid var(--border);
     transition: all .25s;
-    font-size: 1rem;
+    font-size: .95rem;
     text-decoration: none;
 }
 
@@ -355,7 +356,7 @@ nav {
 
 .hero-image img {
     width: 100%;
-    max-width: 420px;
+    max-width: 400px;
     border-radius: 22px;
     position: relative;
     z-index: 1;
@@ -363,11 +364,9 @@ nav {
     filter: grayscale(15%);
 }
 
-/* ════════════════════════════════
-   SECTIONS
-════════════════════════════════ */
+/* ── SECTIONS ── */
 section {
-    padding: 6rem 5%;
+    padding: 5rem 5%; /* Menurunkan padding atas-bawah dari 6rem agar tidak kosong */
     max-width: 1320px;
     margin: 0 auto;
 }
@@ -376,43 +375,43 @@ section {
     display: inline-flex;
     align-items: center;
     gap: .4rem;
-    font-size: .72rem;
+    font-size: .7rem;
     font-weight: 600;
-    letter-spacing: .1em;
+    letter-spacing: .05em; /* Dipadatkan dari 0.1em */
     text-transform: uppercase;
     color: var(--primary);
-    margin-bottom: .75rem;
+    margin-bottom: .5rem;
 }
 
 .section-label::before {
     content: '';
-    width: 20px; height: 1.5px;
+    width: 16px; height: 1.5px;
     background: var(--primary);
 }
 
 .section-title {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     font-weight: 800;
-    letter-spacing: -.03em;
-    margin-bottom: .6rem;
+    letter-spacing: -.02em;
+    margin-bottom: .5rem;
     text-align: center;
 }
 
 .section-subtitle {
     text-align: center;
     color: var(--text-2);
-    margin-bottom: 3.5rem;
-    font-size: .95rem;
+    margin-bottom: 2.5rem; /* Dikurangi dari 3.5rem agar konten grid langsung mengikuti dekat */
+    font-size: .9rem;
 }
 
 /* ════════════════════════════════
-   ABOUT
+    ABOUT
 ════════════════════════════════ */
 .about-container {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 5rem;
+    gap: 4rem; /* Dikurangi dari 5rem */
     align-items: center;
 }
 
@@ -423,7 +422,7 @@ section {
 .about-image::after {
     content: '';
     position: absolute;
-    bottom: -12px; right: -12px;
+    bottom: -10px; right: -10px;
     width: 100%; height: 100%;
     border: 1px solid var(--border);
     border-radius: 20px;
@@ -440,32 +439,32 @@ section {
 
 .about-text h3 {
     font-family: var(--font-display);
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -.02em;
-    margin-bottom: 1.2rem;
+    margin-bottom: .8rem;
     color: var(--text);
 }
 
 .about-text p {
     color: var(--text-2);
-    margin-bottom: 1.25rem;
-    line-height: 1.8;
+    margin-bottom: 1rem;
+    line-height: 1.6; /* Lebih rapi dan tidak terlalu renggang jauh */
     font-size: .95rem;
 }
 
 /* ════════════════════════════════
-   SKILLS
+    SKILLS
 ════════════════════════════════ */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.25rem;
+    gap: 1rem; /* Jarak antar card diperkecil */
 }
 
 .skill-card {
     background: var(--bg-1);
-    padding: 1.75rem;
+    padding: 1.5rem; /* Lebih compact */
     border-radius: var(--radius);
     border: 1px solid var(--border);
     transition: all .3s cubic-bezier(.16,1,.3,1);
@@ -485,7 +484,7 @@ section {
 
 .skill-card:hover {
     border-color: var(--border-hover);
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     background: var(--bg-2);
 }
 
@@ -497,22 +496,22 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: .75rem;
 }
 
 .skill-name {
     font-family: var(--font-display);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
     letter-spacing: -.01em;
 }
 
 .skill-percentage {
-    font-size: .8rem;
+    font-size: .78rem;
     font-weight: 600;
     color: var(--accent);
     font-family: var(--font-display);
-    letter-spacing: .04em;
+    letter-spacing: .02em;
 }
 
 .skill-bar {
@@ -531,39 +530,39 @@ section {
 }
 
 /* ════════════════════════════════
-   PROJECTS
+    PROJECTS
 ════════════════════════════════ */
 .projects-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     flex-wrap: wrap;
     gap: 1rem;
 }
 
 .projects-filter {
     display: flex;
-    gap: .5rem;
+    gap: .25rem;
     flex-wrap: wrap;
     background: var(--bg-1);
     border: 1px solid var(--border);
     border-radius: 99px;
-    padding: .3rem;
+    padding: .25rem;
 }
 
 .filter-btn {
-    padding: .45rem 1.1rem;
+    padding: .4rem 1rem;
     background: transparent;
     border: none;
     color: var(--text-2);
     border-radius: 99px;
     cursor: pointer;
     transition: all .2s;
-    font-size: .82rem;
+    font-size: .8rem;
     font-weight: 500;
     font-family: var(--font-body);
-    letter-spacing: .01em;
+    letter-spacing: -0.01em;
 }
 
 .filter-btn:hover { color: var(--text); }
@@ -576,7 +575,7 @@ section {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.25rem;
+    gap: 1rem;
 }
 
 .project-card {
@@ -590,47 +589,43 @@ section {
 
 .project-card:hover {
     border-color: var(--border-hover);
-    transform: translateY(-6px);
-    box-shadow: 0 20px 48px rgba(0,0,0,.5);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.5);
 }
 
 .project-image {
     width: 100%;
-    height: 200px;
+    height: 190px;
     object-fit: cover;
     display: block;
     transition: transform .5s ease;
 }
 
-.project-card:hover .project-image {
-    transform: scale(1.04);
-}
-
 .project-card h3 {
     font-family: var(--font-display);
-    font-size: 1rem;
+    font-size: .95rem;
     font-weight: 700;
     letter-spacing: -.01em;
-    padding: 1rem 1rem .4rem;
+    padding: .85rem .85rem .3rem;
     color: var(--text);
 }
 
 .project-card p {
-    font-size: .85rem;
+    font-size: .82rem;
     color: var(--text-2);
-    padding: 0 1rem .85rem;
-    line-height: 1.6;
+    padding: 0 .85rem .75rem;
+    line-height: 1.5;
 }
 
 .project-card a {
     display: inline-flex;
     align-items: center;
-    gap: .3rem;
-    font-size: .8rem;
+    gap: .25rem;
+    font-size: .78rem;
     color: var(--primary);
     text-decoration: none;
     font-weight: 500;
-    padding: .65rem 1rem .9rem;
+    padding: .5rem .85rem .75rem;
     transition: gap .2s;
 }
 
@@ -639,31 +634,31 @@ section {
     transition: transform .2s;
 }
 
-.project-card a:hover { gap: .5rem; }
-.project-card a:hover::after { transform: translateX(3px); }
+.project-card a:hover { gap: .4rem; }
+.project-card a:hover::after { transform: translateX(2px); }
 
-.project-info { padding: 1.25rem; }
+.project-info { padding: 1rem; }
 .project-category {
-    font-size: .7rem;
+    font-size: .68rem;
     font-weight: 600;
-    letter-spacing: .08em;
+    letter-spacing: .04em;
     text-transform: uppercase;
     color: var(--primary);
-    margin-bottom: .4rem;
+    margin-bottom: .25rem;
 }
 .project-title {
     font-family: var(--font-display);
-    font-size: 1.3rem;
-    margin-bottom: .4rem;
+    font-size: 1.15rem;
+    margin-bottom: .25rem;
 }
-.project-description { color: var(--text-2); font-size: .9rem; }
+.project-description { color: var(--text-2); font-size: .88rem; line-height: 1.45; }
 
 .project-actions {
     position: absolute;
-    top: .75rem;
-    right: .75rem;
+    top: .6rem;
+    right: .6rem;
     display: flex;
-    gap: .4rem;
+    gap: .3rem;
     opacity: 0;
     transition: opacity .25s;
 }
@@ -671,7 +666,7 @@ section {
 .project-card:hover .project-actions { opacity: 1; }
 
 .action-btn {
-    width: 32px; height: 32px;
+    width: 30px; height: 30px;
     background: rgba(0,0,0,.65);
     backdrop-filter: blur(8px);
     border: none;
@@ -681,7 +676,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: .85rem;
+    font-size: .8rem;
     transition: all .2s;
 }
 .action-btn.edit:hover  { background: var(--accent); color: #080808; }
@@ -691,18 +686,18 @@ section {
 .empty-state {
     grid-column: 1 / -1;
     text-align: center;
-    padding: 5rem 2rem;
+    padding: 4rem 2rem;
     color: var(--text-3);
 }
 .empty-state i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: .75rem;
     opacity: .3;
     display: block;
 }
 
 /* ════════════════════════════════
-   MODAL
+    MODAL
 ════════════════════════════════ */
 .modal {
     display: none;
@@ -722,10 +717,10 @@ section {
 
 .modal-content {
     background: var(--bg-2);
-    max-width: 760px;
+    max-width: 700px; /* Dipersempit agar layout modal lebih tegas */
     width: 92%;
     border-radius: 20px;
-    padding: 2.5rem;
+    padding: 2rem;
     margin: 2rem;
     position: relative;
     border: 1px solid var(--border);
@@ -735,18 +730,18 @@ section {
 }
 
 @keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px) scale(.97); }
+    from { opacity: 0; transform: translateY(30px) scale(.98); }
     to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .modal-close {
     position: absolute;
-    top: 1.25rem; right: 1.25rem;
-    width: 32px; height: 32px;
+    top: 1rem; right: 1rem;
+    width: 30px; height: 30px;
     background: var(--bg-3);
     border: 1px solid var(--border);
     border-radius: 6px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     cursor: pointer;
     color: var(--text-2);
     display: flex;
@@ -758,58 +753,58 @@ section {
 
 .modal-image {
     width: 100%;
-    height: 320px;
+    height: 280px;
     background: linear-gradient(135deg, var(--primary-dim), var(--accent-dim));
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 5rem;
-    margin-bottom: 1.75rem;
+    font-size: 4rem;
+    margin-bottom: 1.25rem;
     border: 1px solid var(--border);
     overflow: hidden;
 }
 
 .modal-category {
-    font-size: .72rem;
+    font-size: .68rem;
     font-weight: 600;
-    letter-spacing: .08em;
+    letter-spacing: .04em;
     text-transform: uppercase;
     color: var(--primary);
-    margin-bottom: .5rem;
+    margin-bottom: .35rem;
 }
-.modal-title  { font-family: var(--font-display); font-size: 2rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: .75rem; }
-.modal-description { color: var(--text-2); line-height: 1.8; margin-bottom: 1.5rem; font-size: .95rem; }
+.modal-title  { font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: .5rem; }
+.modal-description { color: var(--text-2); line-height: 1.6; margin-bottom: 1.25rem; font-size: .92rem; }
 
 .modal-tags {
     display: flex;
-    gap: .4rem;
+    gap: .35rem;
     flex-wrap: wrap;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .tag {
-    padding: .3rem .8rem;
+    padding: .25rem .75rem;
     background: var(--primary-dim);
     border: 1px solid rgba(255,77,77,.2);
     border-radius: 99px;
-    font-size: .78rem;
+    font-size: .75rem;
     color: var(--primary);
     font-weight: 500;
 }
 
-.modal-links { display: flex; gap: .75rem; }
+.modal-links { display: flex; gap: .65rem; }
 
 /* ════════════════════════════════
-   FORM
+    FORM
 ════════════════════════════════ */
-.form-group { margin-bottom: 1.25rem; }
+.form-group { margin-bottom: 1rem; } /* Jarak antar input field dirapatkan */
 
 .form-group label {
     display: block;
-    margin-bottom: .4rem;
+    margin-bottom: .3rem;
     color: var(--text);
-    font-size: .85rem;
+    font-size: .82rem;
     font-weight: 500;
 }
 
@@ -817,13 +812,13 @@ section {
 .form-group textarea,
 .form-group select {
     width: 100%;
-    padding: .75rem 1rem;
+    padding: .65rem .9rem; /* Diperkecil dari .75rem agar ramping */
     background: var(--bg-3);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     color: var(--text);
     font-family: var(--font-body);
-    font-size: .9rem;
+    font-size: .88rem;
     transition: border-color .2s;
     -webkit-appearance: none;
 }
@@ -836,20 +831,18 @@ section {
 }
 
 .form-group select option { background: var(--bg-2); }
-
-.form-group textarea { min-height: 90px; resize: vertical; }
-
-.form-group small { color: var(--text-2); font-size: .78rem; margin-top: .25rem; display: block; }
+.form-group textarea { min-height: 85px; resize: vertical; }
+.form-group small { color: var(--text-2); font-size: .75rem; margin-top: .2rem; display: block; }
 
 .tags-input {
     display: flex;
     flex-wrap: wrap;
-    gap: .4rem;
-    padding: .5rem;
+    gap: .35rem;
+    padding: .4rem;
     background: var(--bg-3);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
-    min-height: 44px;
+    min-height: 40px;
     transition: border-color .2s;
 }
 .tags-input:focus-within { border-color: var(--primary); }
@@ -860,45 +853,33 @@ section {
     border: none;
     background: transparent;
     padding: .2rem .4rem;
-    font-size: .88rem;
+    font-size: .85rem;
 }
 
 .tag-item {
     display: inline-flex;
     align-items: center;
-    gap: .35rem;
-    padding: .25rem .65rem;
+    gap: .3rem;
+    padding: .2rem .55rem;
     background: var(--primary-dim);
     border: 1px solid rgba(255,77,77,.2);
     border-radius: 99px;
-    font-size: .78rem;
+    font-size: .75rem;
     color: var(--primary);
 }
-.tag-item button {
-    background: none;
-    border: none;
-    color: var(--primary);
-    cursor: pointer;
-    font-size: .9rem;
-    line-height: 1;
-    padding: 0;
-    opacity: .7;
-    transition: opacity .2s;
-}
-.tag-item button:hover { opacity: 1; }
 
 /* ════════════════════════════════
-   CONTACT
+    CONTACT
 ════════════════════════════════ */
 #contact .section-title { margin-bottom: .5rem; }
 
 .contact-cta {
-    max-width: 780px;
+    max-width: 720px;
     margin: 0 auto;
     background: var(--bg-1);
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 3.5rem 2.5rem;
+    padding: 3rem 2rem; /* Ukuran padding box diperketat */
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -914,51 +895,40 @@ section {
 
 .contact-cta .text .topic {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 800;
-    letter-spacing: -.03em;
+    letter-spacing: -.02em;
     color: var(--text);
-    margin-bottom: .75rem;
+    margin-bottom: .6rem;
 }
 
 .contact-cta .text p {
     color: var(--text-2);
-    margin-bottom: 1.75rem;
-    font-size: .95rem;
-}
-
-.contact-cta .button button {
-    border: none;
-    border-radius: var(--radius-sm);
-    padding: .85rem 2rem;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: .9rem;
-    font-family: var(--font-body);
-    transition: all .25s;
+    margin-bottom: 1.5rem;
+    font-size: .92rem;
+    line-height: 1.5;
 }
 
 /* ════════════════════════════════
-   FOOTER
+    FOOTER
 ════════════════════════════════ */
 footer {
     border-top: 1px solid var(--border);
-    padding: 2rem 5%;
-    text-align: center;
+    padding: 1.75rem 5%;
 }
 
 footer p {
-    font-size: .82rem;
+    font-size: .8rem;
     color: var(--text-3);
-    letter-spacing: .02em;
+    letter-spacing: 0; /* Mengembalikan spasi default agar tidak stretch */
 }
 
 /* ════════════════════════════════
-   SCROLL REVEAL
+    SCROLL REVEAL
 ════════════════════════════════ */
 .reveal {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
     transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);
 }
 .reveal.visible {
@@ -967,7 +937,7 @@ footer p {
 }
 
 /* ════════════════════════════════
-   RESPONSIVE
+    RESPONSIVE
 ════════════════════════════════ */
 @media (max-width: 968px) {
     .nav-container {
@@ -983,39 +953,39 @@ footer p {
         height: 100vh;
         background: var(--bg-1);
         flex-direction: column;
-        padding: 5rem 2rem;
+        padding: 4rem 2rem;
         transition: left .3s cubic-bezier(.16,1,.3,1);
         gap: .25rem;
         border-right: 1px solid var(--border);
     }
 
     .nav-links.active { left: 0; }
-    .nav-links a { padding: .7rem 1rem; border-radius: var(--radius-sm); }
+    .nav-links a { padding: .6rem 1rem; border-radius: var(--radius-sm); }
     .menu-toggle { display: flex; }
 
     .hero-container,
     .about-container {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 3rem;
+        gap: 2.5rem; /* Rapat pada view mobile */
     }
 
-    .hero-content h1 { font-size: 2.6rem; }
-    .hero-content p  { margin-inline: auto; }
+    .hero-content h1 { font-size: 2.4rem; }
+    .hero-content p  { margin-inline: auto; margin-bottom: 1.5rem; }
     .cta-buttons     { justify-content: center; }
     .social-links    { justify-content: center; }
 
-    .hero-image img  { max-width: 280px; margin: 0 auto; }
+    .hero-image img  { max-width: 260px; margin: 0 auto; }
 
-    .projects-header  { flex-direction: column; align-items: flex-start; }
+    .projects-header  { flex-direction: column; align-items: flex-start; gap: .75rem; }
     .projects-filter  { width: 100%; justify-content: center; }
 
-    .modal-content { padding: 1.75rem; }
-    .modal-image   { height: 220px; }
+    .modal-content { padding: 1.5rem; }
+    .modal-image   { height: 200px; }
 }
 
 @media (max-width: 500px) {
-    .hero-content h1 { font-size: 2rem; }
-    .section-title   { font-size: 1.9rem; }
-    .contact-cta .text .topic { font-size: 1.5rem; }
+    .hero-content h1 { font-size: 1.85rem; }
+    .section-title   { font-size: 1.65rem; }
+    .contact-cta .text .topic { font-size: 1.35rem; }
 }
