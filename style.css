@@ -33,15 +33,9 @@
 
 html { scroll-behavior: smooth; }
 
-/* ── Ambient Background Penuh (Full Kiri, Kanan, Bawah) ── */
 body {
     font-family: var(--font-body);
-    background-color: var(--bg);
-    background-image: 
-        radial-gradient(circle at 0% 30%, rgba(0, 240, 255, 0.18) 0%, transparent 55%), /* Cyan full nempel kiri */
-        radial-gradient(circle at 100% 20%, rgba(112, 0, 255, 0.18) 0%, transparent 55%), /* Ungu full nempel kanan */
-        radial-gradient(circle at 50% 100%, rgba(0, 240, 255, 0.12) 0%, transparent 60%); /* Cyan lembut dari bawah */
-    background-attachment: fixed; /* Membuat gradasi tidak ikut terscroll */
+    background: var(--bg);
     color: var(--text);
     overflow-x: hidden;
     line-height: 1.6;
@@ -149,7 +143,7 @@ nav {
 }
 
 /* ════════════════════════════════
-    HERO
+    HERO (Updated for Smoother Gradients)
 ════════════════════════════════ */
 .hero {
     min-height: 100vh;
@@ -157,7 +151,25 @@ nav {
     align-items: center;
     padding: 8rem 5% 5rem;
     position: relative;
-    /* Dihapus overflow: hidden agar glow background body menyatu utuh */
+    overflow: hidden;
+    /* Gradien Latar Belakang Ambient Baru yang Jauh Lebih Halus */
+    background:
+        radial-gradient(ellipse at bottom left, rgba(0, 240, 255, 0.15) 0%, rgba(0, 240, 255, 0) 50%), /* Cyan Halus di Kiri Bawah */
+        radial-gradient(ellipse at top right, rgba(112, 0, 255, 0.15) 0%, rgba(112, 0, 255, 0) 50%), /* Ungu Halus di Kanan Atas */
+        radial-gradient(ellipse at center, rgba(3, 3, 5, 0.8) 0%, rgba(3, 3, 5, 1) 100%), /* Latar Belakang Gelap Inti */
+        var(--bg); /* Warna Dasar Akhir */
+    background-blend-mode: screen, screen, normal, normal; /* Pencampuran Halus */
+}
+
+/* Hapus gumpalan tajam asli */
+.hero::before,
+.hero::after {
+    display: none; /* Hapus elemen gumpalan tajam asli */
+}
+
+@keyframes drift {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 40px) scale(1.1); }
 }
 
 .hero-container {
@@ -212,17 +224,19 @@ nav {
     margin-bottom: 1rem;
 }
 
+/* Perbarui Gradien Teks Agar Lebih Halus */
 .hero-content h1 .highlight {
+    /* background: var(--gradient-1); Original sharp gradient */
     background: linear-gradient(135deg,
-        rgba(255, 255, 255, 1) 0%,   
-        rgba(0, 240, 255, 1) 30%,  
-        rgba(112, 0, 255, 1) 70%, 
-        rgba(112, 0, 255, 0.8) 100% 
+        rgba(255, 255, 255, 1) 0%,   /* Mulai dari Putih/Kuning Halus */
+        rgba(0, 240, 255, 1) 30%,  /* Ke Cyan */
+        rgba(112, 0, 255, 1) 70%, /* Ke Ungu */
+        rgba(112, 0, 255, 0.8) 100% /* Sedikit lebih gelap di akhir */
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
-    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.25));
+    filter: drop-shadow(0 0 20px var(--glow-primary)); /* Kurangi sedikit shadow agar lebih bersih */
 }
 
 /* ── Typing Animation Style ── */
@@ -254,6 +268,7 @@ nav {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+/* ───────────────────────────── */
 
 .hero-content p {
     color: var(--text-2);
@@ -917,7 +932,7 @@ footer p { font-size: 0.9rem; color: var(--text-3); }
         gap: 3rem;
     }
 
-    .subtitle { justify-content: center; } 
+    .subtitle { justify-content: center; } /* Pusatkan animasi ngetik */
     .hero-content p { margin-inline: auto; }
     .cta-buttons, .social-links { justify-content: center; }
     .hero-image img { max-width: 320px; margin: 0 auto; }
@@ -929,7 +944,7 @@ footer p { font-size: 0.9rem; color: var(--text-3); }
 @media (max-width: 500px) {
     .hero { padding-top: 7rem; }
     .hero-content h1 { font-size: 2.2rem; }
-    .subtitle { justify-content: center; } 
+    .subtitle { justify-content: center; } /* Pusatkan animasi ngetik */
     .section-title { font-size: 1.8rem; }
     .contact-cta { padding: 2.5rem 1.5rem; }
     .contact-topic { font-size: 1.8rem; }
