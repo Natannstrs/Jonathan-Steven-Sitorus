@@ -9,7 +9,6 @@
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo">JS.<span>dev</span></div>
@@ -28,13 +27,16 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">Available for projects</div>
                 <h1>Hi, I'm <span class="highlight">Jonathan</span></h1>
-                <div class="subtitle"><span id="typed-text"></span><span class="cursor">|</span></div>
+                
+                <div class="subtitle">
+                    <span id="typed-text"></span><span class="cursor">|</span>
+                </div>
+
                 <p>An undergraduate student of Informatics Engineering at PLN Institute of Technology, passionate about creating beautiful and functional digital experiences.</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -52,7 +54,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <div class="section-label">About me</div>
         <h2 class="section-title">Who I Am</h2>
@@ -70,7 +71,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills">
         <div class="section-label">Expertise</div>
         <h2 class="section-title">My Skills</h2>
@@ -115,7 +115,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
         <div class="section-label">Work</div>
         <h2 class="section-title">My Projects</h2>
@@ -134,11 +133,9 @@
         </div>
 
         <div class="projects-grid" id="projectsGrid">
-            <!-- Projects injected by JS from projects.json -->
-        </div>
+            </div>
     </section>
 
-    <!-- Project View Modal -->
     <div class="modal" id="projectModal">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">&times;</button>
@@ -151,7 +148,6 @@
         </div>
     </div>
 
-    <!-- Project Form Modal -->
     <div class="modal" id="projectFormModal">
         <div class="modal-content">
             <button class="modal-close" id="formModalClose">&times;</button>
@@ -212,7 +208,6 @@
         </div>
     </div>
 
-    <!-- Contact Section -->
     <section id="contact">
         <div class="section-label">Contact</div>
         <h2 class="section-title">Get In Touch</h2>
@@ -238,6 +233,44 @@
     <script>
     // ─── Year ───────────────────────────────────────────────────────
     document.getElementById('yearNow').textContent = new Date().getFullYear();
+
+    // ─── Typing Animation ───────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', function () {
+        const words = ["Programming", "Design", "3D Modeling"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        const typedTextElement = document.getElementById("typed-text");
+        if (!typedTextElement) return;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                typedTextElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedTextElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 40 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000; 
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length; 
+                typeSpeed = 500; 
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        setTimeout(type, 500); 
+    });
 
     // ─── Nav: active link on scroll ─────────────────────────────────
     (function () {
@@ -286,7 +319,7 @@
         items.forEach(function (el) { observer.observe(el); });
     })();
 
-    // ─── Filter logic (global, reused after JSON load) ───────────────
+    // ─── Filter logic ────────────────────────────────────────────────
     window.filterProjectsByCategory = function (category) {
         var grid  = document.getElementById('projectsGrid');
         var cards = Array.prototype.slice.call(grid.querySelectorAll('.project-card'));
@@ -350,7 +383,6 @@
                     grid.appendChild(card);
                 });
 
-                // Re-apply active filter after cards are injected
                 setTimeout(function () {
                     var activeBtn = document.querySelector('.filter-btn.active');
                     var cat = activeBtn ? (activeBtn.getAttribute('data-filter') || 'all') : 'all';
@@ -381,7 +413,7 @@
 
     // ─── View modal close ─────────────────────────────────────────────
     (function () {
-        var modal     = document.getElementById('projectModal');
+        var modal      = document.getElementById('projectModal');
         var modalClose = document.getElementById('modalClose');
         if (modalClose) modalClose.addEventListener('click', function () { modal.classList.remove('active'); });
         modal.addEventListener('click', function (e) {
