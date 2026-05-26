@@ -32,17 +32,16 @@
 }
 
 /* ════════════════════════════════
-    SOLUSI FINAL: BACKGROUND HTML
+    BACKGROUND HTML & BODY
 ════════════════════════════════ */
 html {
     background-color: var(--bg);
     width: 100vw;
     max-width: 100%;
-    overflow-x: hidden; /* Mencegah layar goyang ke samping */
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
-/* Gradasi Dipasang Secara Paksa ke Viewport Layar */
 html::before {
     content: '';
     position: fixed;
@@ -56,7 +55,6 @@ html::before {
     pointer-events: none;
 }
 
-/* Noise Overlay */
 html::after {
     content: '';
     position: fixed;
@@ -70,7 +68,7 @@ html::after {
 }
 
 body {
-    background: transparent; /* Wajib transparan agar gradasi html terlihat */
+    background: transparent;
     color: var(--text);
     font-family: var(--font-body);
     line-height: 1.6;
@@ -254,18 +252,29 @@ footer p { font-size: 0.9rem; color: var(--text-3); }
     .about-container { padding: 2rem; gap: 2rem; }
 }
 
-/* Tablet Portrait */
+/* Tablet Portrait & Mobile Murni */
 @media (max-width: 768px) {
     section { padding: 5rem 5%; }
     
     .nav-container { padding: 0.6rem 1.2rem; }
+    
+    /* ── FIX: Hapus right:0, tetapkan width: 100% ── */
     .nav-links {
-        position: fixed; top: 0; left: -100%; right: 0; height: 100vh;
-        background: rgba(10, 10, 15, 0.98); backdrop-filter: blur(20px);
-        flex-direction: column; justify-content: center; align-items: center;
-        transition: left 0.4s ease; gap: 1.5rem;
+        position: fixed; 
+        top: 0; 
+        left: -100%; /* Sembunyikan PENUH ke luar kiri layar */
+        width: 100%; /* Lebar fix 100% dari layar, tidak lebih */
+        height: 100vh;
+        background: rgba(10, 10, 15, 0.98); 
+        backdrop-filter: blur(20px);
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center;
+        transition: left 0.4s ease; 
+        gap: 1.5rem;
     }
-    .nav-links.active { left: 0; }
+    
+    .nav-links.active { left: 0; } /* Jika ditekan, muncul tepat di titik 0 */
     .nav-links a { font-size: 1.5rem; padding: 1rem 2rem; }
     .menu-toggle { display: flex; z-index: 2000; }
 
@@ -282,7 +291,6 @@ footer p { font-size: 0.9rem; color: var(--text-3); }
     .projects-filter { justify-content: center; }
 }
 
-/* Mobile Phones (HP) */
 @media (max-width: 480px) {
     section { padding: 4rem 1.25rem; }
     
