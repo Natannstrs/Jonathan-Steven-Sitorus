@@ -13,8 +13,8 @@
     --accent: #7000FF; 
     --accent-dim: rgba(112, 0, 255, 0.1);
     --gradient-1: linear-gradient(135deg, #00F0FF, #7000FF);
-    --bg: #030305; /* Hitam pekat kebiruan */
-    --bg-glass: rgba(15, 15, 20, 0.4); /* Background kaca */
+    --bg: #030305; 
+    --bg-glass: rgba(15, 15, 20, 0.4); 
     --bg-glass-hover: rgba(25, 25, 35, 0.6);
     --border: rgba(255, 255, 255, 0.08);
     --border-hover: rgba(0, 240, 255, 0.5);
@@ -42,7 +42,7 @@ body {
     letter-spacing: -0.01em;
 }
 
-/* ── Noise Overlay (Diperhalus untuk efek premium) ── */
+/* ── Noise Overlay ── */
 body::before {
     content: '';
     position: fixed;
@@ -53,17 +53,13 @@ body::before {
     mix-blend-mode: overlay;
 }
 
-/* ── Custom Scrollbar Web3 ── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { 
-    background: var(--accent); 
-    border-radius: 99px; 
-}
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 99px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
 /* ════════════════════════════════
-    NAV (Floating Glass Pill)
+    NAV
 ════════════════════════════════ */
 nav {
     position: fixed;
@@ -147,7 +143,7 @@ nav {
 }
 
 /* ════════════════════════════════
-    HERO (Neon & Floating Orbs)
+    HERO
 ════════════════════════════════ */
 .hero {
     min-height: 100vh;
@@ -240,7 +236,6 @@ nav {
     margin-bottom: 1rem;
 }
 
-/* Gradient Text Effect Web3 */
 .hero-content h1 .highlight {
     background: var(--gradient-1);
     -webkit-background-clip: text;
@@ -249,15 +244,36 @@ nav {
     filter: drop-shadow(0 0 30px var(--glow-primary));
 }
 
-.hero-content .subtitle {
+/* ── Typing Animation Style ── */
+.subtitle {
+    display: flex;
+    align-items: center;
     font-size: 1.1rem;
-    color: var(--text-2);
     font-weight: 500;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
     font-family: var(--font-display);
+    min-height: 28px;
 }
+
+#typed-text {
+    color: var(--accent);
+}
+
+.cursor {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 800;
+    margin-left: 4px;
+    animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+/* ───────────────────────────── */
 
 .hero-content p {
     color: var(--text-2);
@@ -274,11 +290,10 @@ nav {
     align-items: center;
 }
 
-/* ── Modern Buttons ── */
 .btn {
     padding: 0.85rem 1.8rem;
     border: none;
-    border-radius: 99px; /* Pill shape standard Web3 */
+    border-radius: 99px;
     font-weight: 600;
     font-size: 0.95rem;
     cursor: pointer;
@@ -325,10 +340,7 @@ nav {
     transform: translateY(-2px);
 }
 
-.btn-small {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.85rem;
-}
+.btn-small { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
 
 .social-links {
     display: flex;
@@ -442,7 +454,7 @@ section {
 }
 
 /* ════════════════════════════════
-    ABOUT (Glassmorphism Layout)
+    ABOUT 
 ════════════════════════════════ */
 .about-container {
     display: grid;
@@ -457,15 +469,9 @@ section {
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
-.about-image {
-    position: relative;
-}
-
 .about-image img {
     width: 100%;
     border-radius: 20px;
-    position: relative;
-    z-index: 1;
     border: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -488,7 +494,7 @@ section {
 }
 
 /* ════════════════════════════════
-    SKILLS (Bento Grid Style)
+    SKILLS 
 ════════════════════════════════ */
 .skills-grid {
     display: grid;
@@ -656,9 +662,7 @@ section {
     border-bottom: 1px solid var(--border);
 }
 
-.project-card:hover .project-image {
-    transform: scale(1.05);
-}
+.project-card:hover .project-image { transform: scale(1.05); }
 
 .project-card h3 {
     font-family: var(--font-display);
@@ -690,11 +694,7 @@ section {
     letter-spacing: 0.05em;
 }
 
-.project-card a::after {
-    content: '→';
-    transition: transform 0.3s;
-}
-
+.project-card a::after { content: '→'; transition: transform 0.3s; }
 .project-card a:hover { gap: 0.8rem; text-shadow: 0 0 8px var(--primary); }
 .project-card a:hover::after { transform: translateX(4px); }
 
@@ -708,14 +708,10 @@ section {
     border-radius: var(--radius);
     color: var(--text-3);
 }
-.empty-state i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: var(--text-2);
-}
+.empty-state i { font-size: 3rem; margin-bottom: 1rem; color: var(--text-2); }
 
 /* ════════════════════════════════
-    MODALS (Project View & Form)
+    MODALS
 ════════════════════════════════ */
 .modal {
     display: none;
@@ -785,13 +781,6 @@ section {
     position: relative;
 }
 
-.modal-image::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5));
-}
-
 .modal-category {
     font-size: 0.75rem;
     font-weight: 700;
@@ -857,7 +846,7 @@ section {
 .form-group textarea { min-height: 100px; resize: vertical; }
 
 /* ════════════════════════════════
-    CONTACT CTA (Neon Highlight Box)
+    CONTACT CTA
 ════════════════════════════════ */
 .contact-cta {
     max-width: 800px;
@@ -907,10 +896,7 @@ footer {
     background: rgba(0,0,0,0.5);
 }
 
-footer p {
-    font-size: 0.9rem;
-    color: var(--text-3);
-}
+footer p { font-size: 0.9rem; color: var(--text-3); }
 
 /* ════════════════════════════════
     SCROLL REVEAL
@@ -920,14 +906,13 @@ footer p {
     transform: translateY(30px);
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal.visible {
-    opacity: 1;
-    transform: none;
-}
+.reveal.visible { opacity: 1; transform: none; }
 
 /* ════════════════════════════════
-    RESPONSIVE
+    RESPONSIVE & MOBILE FIXES
 ════════════════════════════════ */
+
+/* Tablet & Laptop Kecil */
 @media (max-width: 968px) {
     .nav-container { padding: 0.6rem 1.2rem; }
     
@@ -954,19 +939,67 @@ footer p {
         gap: 3rem;
     }
 
+    .subtitle { justify-content: center; } /* Ketengahkan animasi ngetik */
     .hero-content p { margin-inline: auto; }
     .cta-buttons, .social-links { justify-content: center; }
-    .hero-image img { max-width: 300px; margin: 0 auto; }
+    .hero-image img { max-width: 320px; margin: 0 auto; }
     
     .projects-header { flex-direction: column; align-items: stretch; }
     .projects-filter { justify-content: center; }
 }
 
+/* Tablet Kecil & Transisi Layar HP */
+@media (max-width: 768px) {
+    section { padding: 4.5rem 5%; }
+    
+    /* Pengecilan Blob Gradasi Agar Tidak Pecah di Viewport */
+    .hero::before { width: 400px; height: 400px; top: 0; right: -100px; }
+    .hero::after { width: 350px; height: 350px; bottom: 0; left: -100px; }
+}
+
+/* Layar Handphone (Mobile) */
 @media (max-width: 500px) {
-    .hero { padding-top: 7rem; }
-    .hero-content h1 { font-size: 2.2rem; }
+    section { padding: 3.5rem 1.25rem; }
+    
+    .hero { padding-top: 7rem; padding-bottom: 3.5rem; }
+    .hero-content h1 { font-size: 2.3rem; }
+    .subtitle { font-size: 0.9rem; margin-bottom: 1rem; }
+    .hero-content p { font-size: 0.95rem; margin-bottom: 1.75rem; }
+    
+    .cta-buttons { flex-direction: column; width: 100%; gap: 0.75rem; }
+    .cta-buttons .btn { width: 100%; } /* Tombol jadi full width di HP */
+    
+    .hero-image img { max-width: 250px; }
+
+    /* Pengecilan Ekstrem Blob Gradasi untuk Layar HP */
+    .hero::before { 
+        width: 250px; height: 250px; 
+        filter: blur(60px); 
+        top: 50px; right: -50px; 
+    }
+    .hero::after { 
+        width: 200px; height: 200px; 
+        filter: blur(50px); 
+        bottom: 50px; left: -50px; 
+    }
+
     .section-title { font-size: 1.8rem; }
-    .contact-cta { padding: 2.5rem 1.5rem; }
-    .contact-cta .text .topic { font-size: 1.8rem; }
-    .modal-content { padding: 1.5rem; }
+    .section-subtitle { margin-bottom: 2.5rem; font-size: 0.9rem; }
+    
+    .about-container { padding: 2rem 1.25rem; gap: 2rem; border-radius: 24px; }
+    .about-text h3 { font-size: 1.5rem; }
+    .about-text p { font-size: 0.9rem; }
+
+    .skills-grid { grid-template-columns: 1fr; }
+    .skill-card { padding: 1.5rem; }
+
+    .projects-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    
+    .contact-cta { padding: 2.5rem 1.5rem; border-radius: 24px; }
+    .contact-cta .text .topic { font-size: 1.6rem; }
+    .contact-cta .text p { font-size: 0.95rem; margin-bottom: 1.5rem; }
+    
+    .modal-content { padding: 1.5rem; border-radius: 20px; }
+    .modal-image { height: 200px; font-size: 3rem; }
+    .modal-title { font-size: 1.5rem; }
 }
