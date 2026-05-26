@@ -143,7 +143,7 @@ nav {
 }
 
 /* ════════════════════════════════
-    HERO
+    HERO (Updated for Smoother Gradients)
 ════════════════════════════════ */
 .hero {
     min-height: 100vh;
@@ -152,31 +152,19 @@ nav {
     padding: 8rem 5% 5rem;
     position: relative;
     overflow: hidden;
+    /* Gradien Latar Belakang Ambient Baru yang Jauh Lebih Halus */
+    background:
+        radial-gradient(ellipse at bottom left, rgba(0, 240, 255, 0.15) 0%, rgba(0, 240, 255, 0) 50%), /* Cyan Halus di Kiri Bawah */
+        radial-gradient(ellipse at top right, rgba(112, 0, 255, 0.15) 0%, rgba(112, 0, 255, 0) 50%), /* Ungu Halus di Kanan Atas */
+        radial-gradient(ellipse at center, rgba(3, 3, 5, 0.8) 0%, rgba(3, 3, 5, 1) 100%), /* Latar Belakang Gelap Inti */
+        var(--bg); /* Warna Dasar Akhir */
+    background-blend-mode: screen, screen, normal, normal; /* Pencampuran Halus */
 }
 
-/* Ambient Cyberpunk Blobs */
+/* Hapus gumpalan tajam asli */
 .hero::before,
 .hero::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    pointer-events: none;
-    z-index: 0;
-}
-
-.hero::before {
-    width: 600px; height: 600px;
-    background: var(--glow-accent);
-    top: -100px; right: -50px;
-    animation: drift 15s ease-in-out infinite alternate;
-}
-
-.hero::after {
-    width: 500px; height: 500px;
-    background: var(--glow-primary);
-    bottom: -100px; left: -100px;
-    animation: drift 20s ease-in-out infinite alternate-reverse;
+    display: none; /* Hapus elemen gumpalan tajam asli */
 }
 
 @keyframes drift {
@@ -236,12 +224,19 @@ nav {
     margin-bottom: 1rem;
 }
 
+/* Perbarui Gradien Teks Agar Lebih Halus */
 .hero-content h1 .highlight {
-    background: var(--gradient-1);
+    /* background: var(--gradient-1); Original sharp gradient */
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 1) 0%,   /* Mulai dari Putih/Kuning Halus */
+        rgba(0, 240, 255, 1) 30%,  /* Ke Cyan */
+        rgba(112, 0, 255, 1) 70%, /* Ke Ungu */
+        rgba(112, 0, 255, 0.8) 100% /* Sedikit lebih gelap di akhir */
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
-    filter: drop-shadow(0 0 30px var(--glow-primary));
+    filter: drop-shadow(0 0 20px var(--glow-primary)); /* Kurangi sedikit shadow agar lebih bersih */
 }
 
 /* ── Typing Animation Style ── */
@@ -870,7 +865,7 @@ section {
     background: var(--gradient-1);
 }
 
-.contact-cta .text .topic {
+.contact-topic {
     font-family: var(--font-display);
     font-size: 2.5rem;
     font-weight: 800;
@@ -879,7 +874,7 @@ section {
     margin-bottom: 1rem;
 }
 
-.contact-cta .text p {
+.contact-cta p {
     color: var(--text-2);
     margin-bottom: 2rem;
     font-size: 1.1rem;
@@ -909,10 +904,8 @@ footer p { font-size: 0.9rem; color: var(--text-3); }
 .reveal.visible { opacity: 1; transform: none; }
 
 /* ════════════════════════════════
-    RESPONSIVE & MOBILE FIXES
+    RESPONSIVE
 ════════════════════════════════ */
-
-/* Tablet & Laptop Kecil */
 @media (max-width: 968px) {
     .nav-container { padding: 0.6rem 1.2rem; }
     
@@ -939,7 +932,7 @@ footer p { font-size: 0.9rem; color: var(--text-3); }
         gap: 3rem;
     }
 
-    .subtitle { justify-content: center; } /* Ketengahkan animasi ngetik */
+    .subtitle { justify-content: center; } /* Pusatkan animasi ngetik */
     .hero-content p { margin-inline: auto; }
     .cta-buttons, .social-links { justify-content: center; }
     .hero-image img { max-width: 320px; margin: 0 auto; }
@@ -948,58 +941,12 @@ footer p { font-size: 0.9rem; color: var(--text-3); }
     .projects-filter { justify-content: center; }
 }
 
-/* Tablet Kecil & Transisi Layar HP */
-@media (max-width: 768px) {
-    section { padding: 4.5rem 5%; }
-    
-    /* Pengecilan Blob Gradasi Agar Tidak Pecah di Viewport */
-    .hero::before { width: 400px; height: 400px; top: 0; right: -100px; }
-    .hero::after { width: 350px; height: 350px; bottom: 0; left: -100px; }
-}
-
-/* Layar Handphone (Mobile) */
 @media (max-width: 500px) {
-    section { padding: 3.5rem 1.25rem; }
-    
-    .hero { padding-top: 7rem; padding-bottom: 3.5rem; }
-    .hero-content h1 { font-size: 2.3rem; }
-    .subtitle { font-size: 0.9rem; margin-bottom: 1rem; }
-    .hero-content p { font-size: 0.95rem; margin-bottom: 1.75rem; }
-    
-    .cta-buttons { flex-direction: column; width: 100%; gap: 0.75rem; }
-    .cta-buttons .btn { width: 100%; } /* Tombol jadi full width di HP */
-    
-    .hero-image img { max-width: 250px; }
-
-    /* Pengecilan Ekstrem Blob Gradasi untuk Layar HP */
-    .hero::before { 
-        width: 250px; height: 250px; 
-        filter: blur(60px); 
-        top: 50px; right: -50px; 
-    }
-    .hero::after { 
-        width: 200px; height: 200px; 
-        filter: blur(50px); 
-        bottom: 50px; left: -50px; 
-    }
-
+    .hero { padding-top: 7rem; }
+    .hero-content h1 { font-size: 2.2rem; }
+    .subtitle { justify-content: center; } /* Pusatkan animasi ngetik */
     .section-title { font-size: 1.8rem; }
-    .section-subtitle { margin-bottom: 2.5rem; font-size: 0.9rem; }
-    
-    .about-container { padding: 2rem 1.25rem; gap: 2rem; border-radius: 24px; }
-    .about-text h3 { font-size: 1.5rem; }
-    .about-text p { font-size: 0.9rem; }
-
-    .skills-grid { grid-template-columns: 1fr; }
-    .skill-card { padding: 1.5rem; }
-
-    .projects-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-    
-    .contact-cta { padding: 2.5rem 1.5rem; border-radius: 24px; }
-    .contact-cta .text .topic { font-size: 1.6rem; }
-    .contact-cta .text p { font-size: 0.95rem; margin-bottom: 1.5rem; }
-    
-    .modal-content { padding: 1.5rem; border-radius: 20px; }
-    .modal-image { height: 200px; font-size: 3rem; }
-    .modal-title { font-size: 1.5rem; }
+    .contact-cta { padding: 2.5rem 1.5rem; }
+    .contact-topic { font-size: 1.8rem; }
+    .modal-content { padding: 1.5rem; }
 }
