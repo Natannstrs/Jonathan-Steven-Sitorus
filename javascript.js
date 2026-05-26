@@ -1,10 +1,15 @@
-// ─── Typing Animation ────────────────────────────────────────────
-    (function () {
+// ─── Typing Animation (Diperbaiki) ───────────────────────────────
+    document.addEventListener('DOMContentLoaded', function () {
         const words = ["Programming", "Design", "3D Modeling"];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
+        
+        // Cari elemen tempat teks akan diketik
         const typedTextElement = document.getElementById("typed-text");
+
+        // Jika elemen tidak ditemukan, hentikan fungsi agar tidak eror
+        if (!typedTextElement) return;
 
         function type() {
             const currentWord = words[wordIndex];
@@ -19,25 +24,24 @@
                 charIndex++;
             }
 
-            // Atur kecepatan
-            let typeSpeed = isDeleting ? 40 : 100; // Kecepatan hapus 40ms, ngetik 100ms
+            // Atur kecepatan: ngetik lebih lambat (100ms), hapus lebih cepat (40ms)
+            let typeSpeed = isDeleting ? 40 : 100;
 
+            // Jika kata sudah selesai diketik
             if (!isDeleting && charIndex === currentWord.length) {
-                // Jeda saat kata selesai diketik
-                typeSpeed = 2000; 
+                typeSpeed = 2000; // Jeda 2 detik sebelum mulai menghapus
                 isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                // Pindah ke kata berikutnya setelah selesai dihapus
+            } 
+            // Jika kata sudah selesai dihapus (kosong)
+            else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                typeSpeed = 500; // Jeda sebelum mengetik kata baru
+                wordIndex = (wordIndex + 1) % words.length; // Pindah ke kata berikutnya
+                typeSpeed = 500; // Jeda 0.5 detik sebelum mengetik kata baru
             }
 
             setTimeout(type, typeSpeed);
         }
 
-        // Mulai animasi jika elemen ditemukan
-        if (typedTextElement) {
-            type();
-        }
-    })();
+        // Mulai animasi
+        setTimeout(type, 500); // Beri delay sedikit saat web baru dibuka
+    });
