@@ -1,6 +1,6 @@
 // ─── Typing Animation (Diperbaiki) ───────────────────────────────
     document.addEventListener('DOMContentLoaded', function () {
-        const words = ["Programming", "Design", "3D Modeling"];
+        const words = ["Programmer", "Designer", "3D Modeller"];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
